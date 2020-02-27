@@ -24,4 +24,8 @@ enum Tag{
 
 };
 
+enum {
+    FILE_IO_ERROR
+};
+
 #endif

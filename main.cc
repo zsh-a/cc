@@ -1,5 +1,13 @@
-#include <iostream>
-#include"Token.h"
-int main(int, char**) {
-    std::cout << Token::key_words["int"];
+#include"Lexer.h"
+using namespace std;
+int main(){
+    Scanner sc("../test/main.cc");
+    Lexer lex(sc);
+    Token* tk;
+    int ch;
+    //while( (ch = sc.scan())!= EOF) printf("%c",ch);
+    while((tk = lex.tokenize())->tag!= END){
+        cout << "token : " << tk->to_string() << endl;
+    }
+    return 0;
 }

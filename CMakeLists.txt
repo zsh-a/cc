@@ -4,7 +4,7 @@ project(cc VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(cc main.cc)
+add_executable(cc Lexer.cc Token.cc main.cc)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
