@@ -6,6 +6,7 @@ int main(){
     Token* tk;
     int ch;
     //while( (ch = sc.scan())!= EOF) printf("%c",ch);
+    Error e(&sc);
     while((tk = lex.tokenize())->tag!= END){
         cout << "token : " << tk->to_string() << endl;
     }

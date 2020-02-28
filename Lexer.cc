@@ -97,7 +97,9 @@ Token* Lexer::tokenize(){
                     }
                 }else if(ch == EOF || ch == '\n'){
                     // end of file
+                    LEXERROR(STR_NO_QUTION);
                     tk = new Token(ERR);
+                    break;
                 }else
                     s.push_back(ch);
             }
@@ -114,7 +116,7 @@ Token* Lexer::tokenize(){
                             scan();
                         }
                     }else{
-
+                        LEXERROR(NUM_HEX_TYPE);
                         tk = new Token(ERR);
                     }
                     
@@ -126,6 +128,7 @@ Token* Lexer::tokenize(){
                             scan();
                         }
                     }else{
+                        LEXERROR(NUM_BIN_TYPE);
                         tk = new Token(ERR);
                     }
                 }else if(ch >= '0' && ch <='7'){
@@ -153,6 +156,7 @@ Token* Lexer::tokenize(){
                 else if(ch == '\\')c = '\\';
                 else if(ch == EOF||c == '\n'){
                     //error
+                    LEXERROR(CHAR_NO_R_QUTION);
                     tk = new Token(ERR);
                 }else c = ch;
             }else if(ch == EOF||ch == '\n'){
@@ -160,6 +164,7 @@ Token* Lexer::tokenize(){
                 tk = new Token(ERR);
             }else if(ch == '\''){
                 //error
+                LEXERROR(CHAR_NO_DATA);
                 tk = new Token(ERR);
                 scan();
             }else{
@@ -220,6 +225,7 @@ Token* Lexer::tokenize(){
                 }
                 if(!tk && ch == EOF){
                     // comment error
+                    LEXERROR(COMMENT_NO_END);
                     tk = new Token(ERR);
                 }
             }else{

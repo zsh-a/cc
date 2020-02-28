@@ -3,6 +3,7 @@
 #include<iostream>
 #include"const.h"
 #include"Token.h"
+#include"Error.h"
 #define MAX_BUFFER_SIZE 1024
 
 class Scanner{
@@ -22,6 +23,8 @@ private:
     char last_ch = EOF;
 
     void load_buff();
+
+    friend class Error;
 };
 
 class Lexer{

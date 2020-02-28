@@ -24,6 +24,16 @@ enum Tag{
 
 };
 
+enum LexError{
+    STR_NO_QUTION,
+    NUM_BIN_TYPE,
+    NUM_HEX_TYPE,
+    CHAR_NO_R_QUTION,
+    CHAR_NO_DATA,
+    OR_NOT_PAIR,
+    COMMENT_NO_END,
+    TKOEN_NO_EXIST
+};
 enum {
     FILE_IO_ERROR
 };
