@@ -18,3 +18,34 @@ void Error::lexError(int code){
     printf("%s<%d,%d> lexerror : %s\n",scanner->filename,scanner->line_num,scanner->col_num,lex_error_table[code]);
 
 }
+
+void Error::synError(int code,Token* token){
+    static const char* syn_error_table[]={
+        "type",
+        "identifier",
+        "length of array",
+        "constant",
+        "','",
+        "';'",
+        "'='",
+        "':'",
+        "\"while\"",
+        "'('",
+        "')'",
+        "'['",
+        "']'",
+        "'{'",
+        "'}'"
+
+    };
+    errorNum++;
+    if(code & 1){
+        //wrong
+        printf("%s<line:%d> syntex error : %s lost before %s .\n",
+            scanner->filename,scanner->line_num,syn_error_table[code/2],token->to_string().c_str());
+    }else{
+        // lost
+        printf("%s<line:%d> syntex error : %s wrong in %s .\n",
+            scanner->filename,scanner->line_num,syn_error_table[code/2],token->to_string().c_str());
+    }
+}

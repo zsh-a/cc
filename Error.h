@@ -8,6 +8,7 @@ class Error{
 public:
     static int errorNum;
     static void lexError(int code);
+    static void synError(int code,Token* token);
     Error(Scanner* sc){
         scanner = sc;
     }

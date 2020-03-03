@@ -1,5 +1,11 @@
 #ifndef __CONST__
 #define __CONST__
+#include<vector>
+#include<unordered_map>
+#include<unordered_set>
+#include<string>
+using namespace std;
+
 enum Tag{
     ERR,
     END,  // end of file
@@ -38,4 +44,36 @@ enum {
     FILE_IO_ERROR
 };
 
+
+enum SynError{
+    TYPE_LOST,
+    TYPE_WRONG,
+    ID_LOST,
+    ID_WRONG,
+    NUM_LOST,
+    NUM_WRONG,
+    LITERAL_LOST,
+    LITERAL_WRONG,
+    COMMA_LOST,
+    COMMA_WRONG,
+    SEMICON_LOST,
+    SEMICON_WRONG,
+    ASSIGN_LOST,
+    ASSIGN_WRONG,
+    COLON_LOST,
+    COLON_WRONG,
+    WHILE_LOST,
+    WHILE_WRONG,
+    LPAREN_LOST,
+    LPAREN_WRONG,
+    RPAREN_LOST,
+    RPAREN_WRONG,
+    LBRACE_LOST,
+    RBRACE_LOST,
+    RBRACE_WRONG,
+    LBRACK_LOST,
+    LBRACK_WRONG,
+    RBRACK_LOST,
+    RBRACK_WRONG,
+};
 #endif
